@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>残页的小博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://canyie.github.io/"/>
+  <updated>2019-10-29T05:47:31.300Z</updated>
+  <id>https://canyie.github.io/</id>
+  
+  <author>
+    <name>残页</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我也有自己的个人博客啦！</title>
+    <link href="https://canyie.github.io/2019/10/28/hello-world/"/>
+    <id>https://canyie.github.io/2019/10/28/hello-world/</id>
+    <published>2019-10-28T12:39:23.000Z</published>
+    <updated>2019-10-29T05:47:31.300Z</updated>
+    
+    <content type="html"><![CDATA[<p>我也有自己的个人博客啦！</p><a id="more"></a><p>基于<a href="https://page.github.com" target="_blank" rel="noopener">GitHub Pages</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>，主题为<a href="https://github.com/xaoxuu/hexo-theme-material-x" target="_blank" rel="noopener">Material-X</a><br>本站地址：<a href="https://canyie.github.io/">https://canyie.github.io/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我也有自己的个人博客啦！&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="闲聊" scheme="https://canyie.github.io/tags/%E9%97%B2%E8%81%8A/"/>
+    
+  </entry>
+  
+</feed>
