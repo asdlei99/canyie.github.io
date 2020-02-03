@@ -378,7 +378,7 @@
 <h1 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h1><p>注：本段内容没有什么营养，可以直接跳过。</p>
 <h2 id="编译打包自动化"><a href="#编译打包自动化" class="headerlink" title="编译打包自动化"></a>编译打包自动化</h2><p>对，目前连自动化打包都没实现，还是手动拿dex等等然后手动压缩进去…</p>
 <h2 id="支持magisk安装"><a href="#支持magisk安装" class="headerlink" title="支持magisk安装"></a>支持magisk安装</h2><p>现在只支持通过安装脚本直接修改/system，如果能够支持magisk模块式安装会少很多麻烦，比如如果变砖了只需要用mm管理器把模块给删了就好了 </p>
-<h2 id="支持重要系统进程加载模块"><a href="#支持重要系统进程加载模块" class="headerlink" title="支持重要系统进程加载模块"></a>支持重要系统进程加载模块</h2><p>由于SELinux限制，目前不支持关键系统进程（如Zygote和system_server）加载模块，我这边没有什么很好的解决办法，求各位大佬赐教 :)<br>顺便列出一些其他的限制：<br>Android 9及以上，zygote&amp;system_server还有其他系统应用会SetOnlyUseSystemOatFiles()，然后就不能加载不在/system下面的oat文件了，如果违反这个策略就会直接abort掉。</p>
+<h2 id="支持重要系统进程加载模块"><a href="#支持重要系统进程加载模块" class="headerlink" title="支持重要系统进程加载模块"></a>支持重要系统进程加载模块</h2><p>由于SELinux限制，目前不支持关键系统进程（如Zygote和system_server）加载模块，我这边没有什么很好的解决办法，求各位大佬赐教 :)<br>顺便列出一些其他的限制：<br>android 9，隐藏API访问限制，这个好办，绕过方式有很多，就不细讲了。<br>Android 9及以上，zygote&amp;system_server还有其他系统应用会SetOnlyUseSystemOatFiles()，然后就不能加载不在/system下面的oat文件了，如果违反这个策略就会直接abort掉。<br>android zygote fork新进程时，如果有不在白名单中的文件描述符，会进到ZygoteFailure里，然后整个进程abort掉。</p>
 <h2 id="配置文件加载部分"><a href="#配置文件加载部分" class="headerlink" title="配置文件加载部分"></a>配置文件加载部分</h2><p>因为在目标进程里加载模块肯定需要获取对应的配置，目前的做法是，把对应的配置文件设置成谁都能读，然后直接读这个文件就行，这样做当然不妥，所以计划以后去优化，比如优化成单独跑一个配置守护进程，只有这个进程能去读写配置，其他应用只能通过跨进程交互的方式拿到配置。</p>
 <h2 id="重新实现Xposed-API"><a href="#重新实现Xposed-API" class="headerlink" title="重新实现Xposed API"></a>重新实现Xposed API</h2><p>目前梦境的Xposed API是SandHook自带的<a href="https://github.com/ganyao114/SandHook/tree/master/xposedcompat" target="_blank" rel="noopener">xposedcompat</a>，通过DexMaker动态创建新的dex实现适配，这么做没有什么兼容性问题，但是有很大的效率问题，如果是第一次创建这个方法，需要生成dex，一套流程走下来可能就要用上100+ms。<br>在<a href="https://github.com/ganyao114/SandHook/tree/master/xposedcompat_new" target="_blank" rel="noopener">xposedcompat_new</a>中，有另一种实现方案：通过动态代理动态生成方法，然后把这个方法设置成native，对应的native函数也是通过libffi动态生成的，在这个native方法里跳到分发函数执行。这个方案对我来说很不错，至少不会太慢。（当然稳定性存疑）</p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>目前梦境框架还有非常多的不足，目前只能当个PoC用，如果你有兴趣，不妨一起来玩 ^_^<br>核心：<a href="https://github.com/canyie/Dreamland" target="_blank" rel="noopener">Dreamland</a><br>配套的管理器 <a href="https://github.com/canyie/DreamlandManager" target="_blank" rel="noopener">Dreamland Manager</a><br><a href="mqqwpa://im/chat?chat_type=group&uin=949888394&version=1" target="_blank" rel="noopener">QQ群：949888394</a></p>
@@ -393,7 +393,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-03T16:13:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-03T16:25:20+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
     <p>更新于 2020年2月3日</p>
