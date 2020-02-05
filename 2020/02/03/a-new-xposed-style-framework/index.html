@@ -329,7 +329,7 @@
 <ul>
 <li><a href="https://github.com/rovo89/Xposed" target="_blank" rel="noopener">Xposed</a> ：Xposed for art 重新实现了app_process，libart.so等重要系统库，安装时会替换这些文件，而各大厂商几乎没有不修改它们的，一旦被替换很可能变砖，导致Xposed在非原生系统上的稳定性很差。</li>
 <li><a href="https://github.com/ElderDrivers/EdXposed" target="_blank" rel="noopener">EdXposed</a> : EdXp依赖 <a href="https://github.com/RikkaApps/Riru" target="_blank" rel="noopener">Riru</a> 而Riru是通过替换libmemtrack.so来实现，这个so库会在zygote进程启动时被加载，并且比libart轻得多（只有10个导出函数），然后就可以在zygote进程里执行任意代码。</li>
-<li><a href="https://github.com/taichi-framework/TaiChi" target="_blank" rel="noopener">太极阳</a> : 太极阳通过替换libjit.so实现注入zygote（以前是替换libprocessgroup.so）</li>
+<li><a href="https://github.com/taichi-framework/TaiChi" target="_blank" rel="noopener">太极阳</a> : 太极阳通过一种我看不懂的魔法（看了一下只发现libjit.so，但weishu表示Android系统里并没有一个这样一个库，所以并不是简单替换so）注入进zygote（以前是替换libprocessgroup.so）</li>
 </ul>
 <p>可以看出，其他框架几乎都通过直接替换系统已有的so库实现，而替换已有so库则需要尽量选择较轻的库，以避免厂商的修改导致的问题。然而，我们没法避免厂商在so里加料，如果厂商修改了这个so库，我们直接把我们自己以AOSP为蓝本写的so替换上去，则会导致严重的问题。<br>有没有别的什么办法？下面介绍梦境的实现方式。<br>（注：如无特别说明，本文中的AOSP源码都是 <a href="http://aospxref.com/android-7.0.0_r36" target="_blank" rel="noopener">7.0.0_r36</a> 对应的代码）<br>我们知道，在android中，所有的应用进程都是由zygote进程fork出来的，而zygote对应的可执行文件就是app_process（具体可以看init.rc）<br>app_process的main方法如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* <span class="keyword">const</span> argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// 省略无关代码...</span></span><br><span class="line">  <span class="function">AppRuntime <span class="title">runtime</span><span class="params">(argv[<span class="number">0</span>], computeArgBlockSize(argc, argv))</span></span>;</span><br><span class="line">  <span class="comment">// 省略无关代码...</span></span><br><span class="line">  <span class="keyword">if</span> (zygote) &#123;</span><br><span class="line">    runtime.start(<span class="string">"com.android.internal.os.ZygoteInit"</span>, args, zygote);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (className) &#123;</span><br><span class="line">    runtime.start(<span class="string">"com.android.internal.os.RuntimeInit"</span>, args, zygote);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Error: no class name or --zygote supplied.\n"</span>);</span><br><span class="line">    app_usage();</span><br><span class="line">    LOG_ALWAYS_FATAL(<span class="string">"app_process: no class name or --zygote supplied."</span>);</span><br><span class="line">     <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -394,10 +394,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-03T16:58:26+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-05T14:10:23+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>更新于 2020年2月3日</p>
+    <p>更新于 2020年2月5日</p>
   </a>
 </div>
 
