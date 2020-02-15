@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Tag: 闲聊 | 残页的小博客</title>
+  <title>Tag: dex | 残页的小博客</title>
   
   
   <meta name="description" content="残页的小博客~">
@@ -257,8 +257,8 @@
       
         
   <h2 class="title">
-    <a href="/2019/10/28/hello-world/">
-      我也有自己的个人博客啦！
+    <a href="/2020/02/15/fast-load-dex-on-art-runtime/">
+      一种在ART上快速加载dex的方法
     </a>
   </h2>
 
@@ -288,7 +288,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-10-28</p>
+    <p>2020-02-15</p>
   </a>
 </div>
 
@@ -314,10 +314,10 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p>我也有自己的个人博客啦！</p>
+      <p>在国内的大环境下，Android上插件化/热修复等技术百花齐放，而这一切都基于代码的动态加载。Android提供了一个DexClassLoader。用这个API能成功加载dex，但有一个比较严重的问题：Android Q以下，当这个dex被加载时，，如果没有已经生成的oat，则会执行一次dex2oat把这个dex编译为oat，导致第一次加载dex会非常非常慢。个人认为这样的设计是非常不合理的，虽然转换成oat之后执行会很快，但完全可以让用户以解释器模式先愉快的用着，dex2oat放另一个线程执行多好。Android 8.0上谷歌还提供了一个InMemoryDexClassLoader，而以前的Android版本，就要开发者自己想办法了……</p>
       
         <div class="readmore">
-          <a href="/2019/10/28/hello-world/" class="flat-box">
+          <a href="/2020/02/15/fast-load-dex-on-art-runtime/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             阅读全文
           </a>
@@ -327,7 +327,11 @@
     
       <div class="full-width auto-padding tags">
         
-          <a href="/tags/%E9%97%B2%E8%81%8A/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 闲聊</a>
+          <a href="/tags/android/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> android</a>
+        
+          <a href="/tags/art/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> art</a>
+        
+          <a href="/tags/dex/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> dex</a>
         
       </div>
     
