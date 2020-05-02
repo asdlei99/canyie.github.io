@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://canyie.github.io/"/>
+  <link href="https://blog.canyie.top/"/>
   <updated>2020-04-27T02:08:44.885Z</updated>
-  <id>https://canyie.github.io/</id>
+  <id>https://blog.canyie.top/</id>
   
   <author>
     <name>残页</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>ART上的动态Java方法hook框架</title>
-    <link href="https://canyie.github.io/2020/04/27/dynamic-hooking-framework-on-art/"/>
-    <id>https://canyie.github.io/2020/04/27/dynamic-hooking-framework-on-art/</id>
+    <link href="https://blog.canyie.top/2020/04/27/dynamic-hooking-framework-on-art/"/>
+    <id>https://blog.canyie.top/2020/04/27/dynamic-hooking-framework-on-art/</id>
     <published>2020-04-27T02:00:00.000Z</published>
     <updated>2020-04-27T02:08:44.885Z</updated>
     
@@ -33,22 +33,22 @@
     
     
     
-      <category term="android" scheme="https://canyie.github.io/tags/android/"/>
+      <category term="android" scheme="https://blog.canyie.top/tags/android/"/>
     
-      <category term="art" scheme="https://canyie.github.io/tags/art/"/>
+      <category term="art" scheme="https://blog.canyie.top/tags/art/"/>
     
-      <category term="AOP" scheme="https://canyie.github.io/tags/AOP/"/>
+      <category term="AOP" scheme="https://blog.canyie.top/tags/AOP/"/>
     
-      <category term="hook" scheme="https://canyie.github.io/tags/hook/"/>
+      <category term="hook" scheme="https://blog.canyie.top/tags/hook/"/>
     
-      <category term="xposed" scheme="https://canyie.github.io/tags/xposed/"/>
+      <category term="xposed" scheme="https://blog.canyie.top/tags/xposed/"/>
     
   </entry>
   
   <entry>
     <title>一种在ART上快速加载dex的方法</title>
-    <link href="https://canyie.github.io/2020/02/15/fast-load-dex-on-art-runtime/"/>
-    <id>https://canyie.github.io/2020/02/15/fast-load-dex-on-art-runtime/</id>
+    <link href="https://blog.canyie.top/2020/02/15/fast-load-dex-on-art-runtime/"/>
+    <id>https://blog.canyie.top/2020/02/15/fast-load-dex-on-art-runtime/</id>
     <published>2020-02-15T02:02:33.000Z</published>
     <updated>2020-04-15T03:08:44.350Z</updated>
     
@@ -62,18 +62,18 @@
     
     
     
-      <category term="android" scheme="https://canyie.github.io/tags/android/"/>
+      <category term="android" scheme="https://blog.canyie.top/tags/android/"/>
     
-      <category term="art" scheme="https://canyie.github.io/tags/art/"/>
+      <category term="art" scheme="https://blog.canyie.top/tags/art/"/>
     
-      <category term="dex" scheme="https://canyie.github.io/tags/dex/"/>
+      <category term="dex" scheme="https://blog.canyie.top/tags/dex/"/>
     
   </entry>
   
   <entry>
     <title>试着写了一个类Xposed框架</title>
-    <link href="https://canyie.github.io/2020/02/03/a-new-xposed-style-framework/"/>
-    <id>https://canyie.github.io/2020/02/03/a-new-xposed-style-framework/</id>
+    <link href="https://blog.canyie.top/2020/02/03/a-new-xposed-style-framework/"/>
+    <id>https://blog.canyie.top/2020/02/03/a-new-xposed-style-framework/</id>
     <published>2020-02-03T06:51:21.000Z</published>
     <updated>2020-02-05T06:10:23.000Z</updated>
     
@@ -88,22 +88,22 @@
     
     
     
-      <category term="android" scheme="https://canyie.github.io/tags/android/"/>
+      <category term="android" scheme="https://blog.canyie.top/tags/android/"/>
     
-      <category term="art" scheme="https://canyie.github.io/tags/art/"/>
+      <category term="art" scheme="https://blog.canyie.top/tags/art/"/>
     
-      <category term="AOP" scheme="https://canyie.github.io/tags/AOP/"/>
+      <category term="AOP" scheme="https://blog.canyie.top/tags/AOP/"/>
     
-      <category term="hook" scheme="https://canyie.github.io/tags/hook/"/>
+      <category term="hook" scheme="https://blog.canyie.top/tags/hook/"/>
     
-      <category term="xposed" scheme="https://canyie.github.io/tags/xposed/"/>
+      <category term="xposed" scheme="https://blog.canyie.top/tags/xposed/"/>
     
   </entry>
   
   <entry>
     <title>我也有自己的个人博客啦！</title>
-    <link href="https://canyie.github.io/2019/10/28/hello-world/"/>
-    <id>https://canyie.github.io/2019/10/28/hello-world/</id>
+    <link href="https://blog.canyie.top/2019/10/28/hello-world/"/>
+    <id>https://blog.canyie.top/2019/10/28/hello-world/</id>
     <published>2019-10-28T12:39:23.000Z</published>
     <updated>2020-04-15T03:05:17.501Z</updated>
     
@@ -117,7 +117,7 @@
     
     
     
-      <category term="闲聊" scheme="https://canyie.github.io/tags/%E9%97%B2%E8%81%8A/"/>
+      <category term="闲聊" scheme="https://blog.canyie.top/tags/%E9%97%B2%E8%81%8A/"/>
     
   </entry>
   
